@@ -1,0 +1,104 @@
+/*!
+ * @author waanhappy@163.com
+ * timepicker 时间选择器less
+ */
+.timepicker {
+  position: absolute;
+  z-index: 1000;
+  float: left;
+  width: 160px;
+  padding-bottom: 5px;
+  margin: 2px 0 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+.timepicker:before,
+.timepicker:after {
+  content: '';
+  border-top: 0;
+  display: inline-block;
+  position: absolute;
+}
+.timepicker:before {
+  top: -7px;
+  left: 6px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+}
+.timepicker:after {
+  top: -6px;
+  left: 7px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #fff;
+}
+.timepicker .title {
+  padding: 10px 0 5px 0;
+  color: #888;
+  width: 100%;
+  cursor: default;
+}
+.timepicker .cell-2 {
+  float: left;
+  width: 20%;
+  min-height: 14px;
+  cursor: default;
+}
+.timepicker .cell-4 {
+  width: 40%;
+  float: left;
+}
+.timepicker .handle,
+.timepicker .text {
+  position: relative;
+}
+.timepicker .chose-all {
+  position: relative;
+  margin: 0 10px 0 10px;
+}
+.timepicker .chose-all .text {
+  font: bold 18px/22px arial, sans-serif;
+}
+.timepicker a {
+  color: #aaa;
+}
+.timepicker a:active,
+.timepicker a:focus,
+.timepicker a:hover {
+  color: #555;
+  text-decoration: none;
+}
+.timepicker .text {
+  color: #666;
+}
+.timepicker .text a {
+  color: #444;
+}
+.timepicker .text a:active,
+.timepicker .text a:focus,
+.timepicker .text a:hover {
+  color: #222;
+}
+.timepicker ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 5px;
+}
+.timepicker li.cell-2 {
+  padding: 3px 0;
+  cursor: pointer;
+}
+.timepicker li.cell-2:hover {
+  background: #ccc;
+  color: #555;
+}
