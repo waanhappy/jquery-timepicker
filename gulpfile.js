@@ -27,7 +27,7 @@ gulp.task('default',['less'], function() {
             name: 'jquery',
             amd: 'jquery',
             cjs: 'jquery',
-            global: 'jquery',
+            global: 'jQuery',
             param: '$'}];
         }
         

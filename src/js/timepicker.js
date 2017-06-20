@@ -3,7 +3,7 @@
 
 // 单个位数前加0  
 var twobit = function( num ) {
-	return num > 10 ? num + '' : '0' + num;
+	return num >= 10 ? num + '' : '0' + num;
 };
 // 检测时间是否符合要求
 var regTime = /^[0-9]{1,2}:[0-9]{1,2}$/;
@@ -28,9 +28,9 @@ var content = $('<div class="timepicker">\
 		<div v-show class="title">请选择</div>\
 			<div class="chose-all">\
 				<div class="handle">\
-					<div class="cell-4"><a class="icon icon-angle-up icon-2x js-plus-houer"></a></div>\
+					<div class="cell-4"><a class="icon-up js-plus-houer"></a></div>\
 					<div class="cell-2"></div>\
-					<div class="cell-4"><a class="icon icon-angle-up icon-2x js-plus-minute"></a></div>\
+					<div class="cell-4"><a class="icon-up js-plus-minute"></a></div>\
 				</div>\
 				<div class="text">\
 					<div class="cell-4"><a class="js-hour-show" title="选择时"></a></div>\
@@ -38,9 +38,9 @@ var content = $('<div class="timepicker">\
 					<div class="cell-4"><a class="js-minute-show" title="选择分"></a></div>\
 				</div>\
 				<div class="handle">\
-					<div class="cell-4"><a class="icon icon-angle-down icon-2x js-minus-houer"></a></div>\
+					<div class="cell-4"><a class="icon-down js-minus-houer"></a></div>\
 					<div class="cell-2"></div>\
-					<div class="cell-4"><a class="icon icon-angle-down icon-2x js-minus-minute"></a></div>\
+					<div class="cell-4"><a class="icon-down js-minus-minute"></a></div>\
 				</div>\
 			</div>\
 			<div class="chose-hour">\
@@ -155,11 +155,11 @@ $.timepicker = timepicker;
 
 // 为jquery增加timepicket功能
 $.fn.timepicker = function( option ) {
-	
+	var t = this;
 	var hour;
 	var minute;
 	var timepickerObj = $.timepicker;
-	var $body = $('body');
+	var $body = $('html');
 	
 	// 元素应该是input
 	if( !this[0].nodeName || this[0].nodeName !== 'INPUT' ){
