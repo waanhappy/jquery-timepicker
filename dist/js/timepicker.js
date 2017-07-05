@@ -101,7 +101,7 @@ timepicker.bindEvent = function () {
 	// 分钟++
 	}).on('click','.js-plus-minute',function() {
 		var minute = thisTimePicker.minute;
-		if( minute > 59 ){
+		if( minute >= 59 ){
 			thisTimePicker.minute = 0;
 		} else {
 			thisTimePicker.minute++;
@@ -112,7 +112,7 @@ timepicker.bindEvent = function () {
 	// 小时++
 	}).on('click','.js-plus-houer',function() {
 		var hour = thisTimePicker.hour;
-		if( hour > 23 ){
+		if( hour >= 23 ){
 			thisTimePicker.hour = 0;
 		} else {
 			thisTimePicker.hour++;
