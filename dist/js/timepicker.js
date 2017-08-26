@@ -38,33 +38,15 @@ var minuteStr = new Array( 12 ).fill( null ).map(function(t,i){
 	return  '<li class="cell-2 js-minute-cell" data-val="' + val + '">' + val + '</li>';
 }).join('');
 
-var content = $('<div class="timepicker">\
-		<div v-show class="title">请选择</div>\
-			<div class="chose-all">\
-				<div class="handle">\
-					<div class="cell-4"><a class="icon-up js-plus-houer"></a></div>\
-					<div class="cell-2"></div>\
-					<div class="cell-4"><a class="icon-up js-plus-minute"></a></div>\
-				</div>\
-				<div class="text">\
-					<div class="cell-4"><a class="js-hour-show" title="选择时"></a></div>\
-					<div class="cell-2">:</div>\
-					<div class="cell-4"><a class="js-minute-show" title="选择分"></a></div>\
-				</div>\
-				<div class="handle">\
-					<div class="cell-4"><a class="icon-down js-minus-houer"></a></div>\
-					<div class="cell-2"></div>\
-					<div class="cell-4"><a class="icon-down js-minus-minute"></a></div>\
-				</div>\
-			</div>\
-			<div class="chose-hour">\
-				<ul class="handle">' + hourStr + '</ul>\
-			</div>\
-			<div class="chose-minute">\
-				<ul class="handle">' + minuteStr + '</ul>\
-			</div>\
-		</div>\
-	</div>');
+var content = $('<div class="timepicker"><div v-show class="title">请选择</div><div class='+
+			'"chose-all"><div class="handle"><div class="cell-4"><a class="icon icon-angle-up icon-2x '+
+			'js-plus-houer"></a></div><div class="cell-2"></div><div class="cell-4"><a class="icon icon-angle-up '+
+			'icon-2x js-plus-minute"></a></div></div><div class="text"><div class="cell-4"><a class="js-hour-show" '+
+			'title="选择时"></a></div><div class="cell-2">:</div><div class="cell-4"><a class="js-minute-show" title="选择分">'+
+			'</a></div></div><div class="handle"><div class="cell-4"><a class="icon icon-angle-down icon-2x js-minus-houer"></a>'+
+			'</div><div class="cell-2"></div><div class="cell-4"><a class="icon icon-angle-down icon-2x js-minus-minute"></a></div>'+
+			'</div></div><div class="chose-hour"><ul class="handle">' + hourStr + '</ul></div><div class="chose-minute"><ul class="handle">' + 
+			minuteStr + '</ul></div></div></div>');
 content.find('a').attr('href','javascript:void(0);');
 timepicker.content = content;
 timepicker.title = content.find('.title');
@@ -173,8 +155,13 @@ $.fn.timepicker = function( option ) {
 	var hour;
 	var minute;
 	var timepickerObj = $.timepicker;
-	var $body = $('html');
-	
+	var $body = $('body');
+	if( t.length > 1 || !t.length ){
+		t.each(function() {
+			$( this ).timepicker();
+		});
+		return t;
+	}
 	// 元素应该是input
 	if( !this[0].nodeName || this[0].nodeName !== 'INPUT' ){
 		return;
